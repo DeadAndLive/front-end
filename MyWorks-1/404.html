@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Width</title>
+		<style>
+			p {
+				font-size: 40px;
+				height: 60px;
+				line-height: 60px;
+				margin-top: 200px;
+			}
+			div {
+				height: 100%;
+			}
+			.cube-1-y {
+				border-radius: 50%;
+				border: 1px solid black;
+				background-color: rgba(0,0,0,0.05);
+				box-shadow: 0 0 0.05rem aqua;
+			}
+			.cube-1 {
+				position: absolute;
+				width: 16vw;
+				height: 16vw;
+				top: 4rem;
+				left: 42vw;
+				transform-style: preserve-3d;
+				animation: cube 10s linear infinite alternate;
+			}
+			@keyframes cube{
+				from{transform: rotateX(20deg) rotateY(0deg);}
+				to{transform: rotateX(20deg) rotateY(360deg);}
+			}
+			.cube-1>span {
+				position: absolute;
+				top: 0;
+				width: 16vw;
+				height: 16vw;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="cube-1"></div>
+		<div class="pTxt">
+			<center>
+				<p>Please view the <strong>device with</strong> resolution greater than <strong>1080</strong></p>
+			</center>
+		</div>
+		<script src="js/jquery-1.12.4.js"></script>
+		<script>
+			$(function() {
+				if ($(window).width() >= 1080) {
+					$(location).attr("href","index.html");
+				}
+				$(function() {
+					$(window).resize(function() {
+						if ($(window).width() >= 1080) {
+							$(location).attr("href","index.html");
+						}
+					});
+				});
+				for (var i = 40; i >= 0; i--) {
+					$(".cube-1").append("<span class='cube-1-y' style='transform: rotateY("+i*9+"deg);'></span>")
+				}
+			});
+		</script>
+	</body>
+</html>
