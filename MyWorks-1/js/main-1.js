@@ -2,13 +2,13 @@ $(() => {
 	var width = $(window).width() / 16;
 	$("html").css("fontSize", width);
 	if ($(window).width() < 1080) {
-		$(location).attr("href", "404.html");
+		$(location).attr("href", "width_min.html");
 	}
 	$(window).resize(() => {
 		width = $(window).width() / 16;
 		$("html").css("fontSize", width);
 		if ($(window).width() < 1080) {
-			$(location).attr("href", "404.html");
+			$(location).attr("href", "width_min.html");
 		}
 	});
 	for (var i = 40; i >= 0; i--) {
